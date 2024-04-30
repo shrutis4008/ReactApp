@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  Outlet,
   Link,
 } from "react-router-dom";
 
@@ -16,16 +17,55 @@ import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 import CreatePost from "./pages/CreatePost";
 
+const Layout = ()=>{
+  return (
+    <>
+    <Navbar/>
+    <Outlet/>
+    <Footer/>
+    </>
+  )
+
+}
+
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <div> 
-       <Navbar/>
-       <Home/>
-       <Footer/>
-       </div>
+      element: <Layout/>,
+      children: [
+
+     
+      {
+        path: "/",
+        element: <Home/>,
+      },
+
+      {
+        path: "/create",
+        element: <CreatePost/>,
+      },
+
+      {
+        path: "/login",
+        element: <Login/>,
+      },
+
+      {
+        path: "/register",
+        element: <Register/>,
+      },
+
+      {
+        path: "/post",
+        element: <SinglePost/>,
+      },
+    ]
+  
     },
+  
+
+
     {
       path: "/login",
       element: <Login/>,
@@ -56,5 +96,7 @@ function App() {
   <RouterProvider router={router} />
   );
 }
+
+
 
 export default App;
