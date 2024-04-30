@@ -2,13 +2,15 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <div classname='connect'>
+    <div className='connect'>
       <h1>Login</h1>
 
       <form>
-        <input type='text' placeholder='email'/> 
-        <input type='password' placeholder='password'/>
+        <input required type='text' placeholder='email'/> 
+        <input required type='password' placeholder='password'/>
         <button> Login </button>
+        <p> This is an error!</p>
+        <a href="/register">Register for a new account here.</a>
 
       </form>
     </div>

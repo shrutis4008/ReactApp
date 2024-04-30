@@ -2,10 +2,62 @@
 
     .container{
 
+        // Login and Register
+
         .connect{
             display:flex;
+            flex-direction: column ;
             align-items: center;
             justify-content: center;
+            height: 100vh;
+            background-color: #fad9f2;
+
+
+
+            h1{
+
+                font-size: 30px;
+                color: #4f434c;
+            }
+
+            form{
+                display: flex;
+                flex-direction: column;
+                background-color: #f2f0eb;
+                padding: 30px;
+                width: 300px;
+                gap: 20px;
+            }
+
+            input{
+                border:#f2f0eb;
+                border-bottom: 1px solid black;
+                font-size: 15px;
+            }
+
+            button{
+                background-color: #4f434c;
+                font-size: 25px;
+                cursor: pointer;
+                color: #f2f0eb;
+            }
+
+            a{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            p{
+                font-size: 15px;
+                color: red;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
         }
 
     }
