@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import './App.css';
 
 import {
   createBrowserRouter,
@@ -16,6 +14,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 import CreatePost from "./pages/CreatePost";
+import './style.scss';
+
 
 const Layout = ()=>{
   return (
@@ -92,8 +92,8 @@ function App() {
     // <div>
     //   Hello World.
     // </div>
- <div className='App'>
-  <div className='Container'>
+ <div className='app'>
+  <div className='container'>
   <RouterProvider router={router} />
   </div>
   </div>
