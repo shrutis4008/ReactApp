@@ -6,7 +6,7 @@ import { Button, Navbar, Nav, Container } from 'react-bootstrap'
 const NavigationBar = () => {
   return (
     <div className='NavigationBar'>
-    <Navbar bg="dark" data-bs-theme="dark">
+    <Navbar bg="dark" data-bs-theme="dark" fixed="top">
         <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">

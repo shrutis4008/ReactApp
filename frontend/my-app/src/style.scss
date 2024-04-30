@@ -67,6 +67,7 @@
     // Footer
 
     footer{
+       
         margin-top: 100px;
         padding: 20px;
         background-color: #4f434c;
@@ -74,6 +75,7 @@
         display: flex;
         align-items: center;
         justify-content:right;
+        
     }
 
     // homepage
@@ -89,16 +91,19 @@
 
 
             .post{
+                padding-top: 30px;
                 display: flex;
                 gap: 50px;
 
                 .img{
-                    flex: 1;
-                    
+                    flex: 2;
+                
+          
                   
                 img{
                     width: 100%;
                     max-height: 400px;
+                    
 
                 }
                    
@@ -106,7 +111,27 @@
                 }
 
                 .content{
-                    flex:2;
+                    flex:3;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    h1{
+                        font-size: 30px;
+                        font-weight: bold;
+                    }
+
+                    p{
+                        font-size: 18px;
+                    }
+
+                    button{
+                        width: max-content;
+                        border: none;
+                        background-color: #4f434c;
+                        color:#f2f0eb;
+                        border-color:#fad9f2;
+                    }
 
                 }
             }

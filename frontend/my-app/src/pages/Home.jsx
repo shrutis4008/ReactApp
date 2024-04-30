@@ -35,6 +35,7 @@ const Home = () => {
       img: "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800",
       
     }
+    
   ]
 
   return (
@@ -44,13 +45,14 @@ const Home = () => {
         <div className="post" key={post.id}>
           <div className="img">
             <img src={post.img} alt="" />
+            
           </div>
           <div className="content">
             <Link className="link" to={`/post/${post.id}`}>
               <h1>{post.title}</h1>
             </Link>
             <p>{post.desc}</p>
-            <button>Read More</button>
+            <button>   Read More   </button>
           </div>
         </div>
       ))}
