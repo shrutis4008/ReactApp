@@ -76,5 +76,41 @@
         justify-content:right;
     }
 
+    // homepage
+
+    .home{
+
+
+        .posts{
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 200px;
+
+
+            .post{
+                display: flex;
+                gap: 50px;
+
+                .img{
+                    flex: 1;
+                    
+                  
+                img{
+                    width: 100%;
+                    max-height: 400px;
+
+                }
+                   
+
+                }
+
+                .content{
+                    flex:2;
+
+                }
+            }
+        }
+    }
 
 }

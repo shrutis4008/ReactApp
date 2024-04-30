@@ -8,7 +8,7 @@ const Home = () => {
       id: 1, 
       title: "What is Lorem Ipsum?",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-      img: "frontend/my-app/image/pexels-ash-122861-376464.jpg"
+      img: "https://images.pexels.com/photos/708488/pexels-photo-708488.jpeg?auto=compress&cs=tinysrgb&w=800",
       
     },
 
@@ -16,7 +16,7 @@ const Home = () => {
       id: 2, 
       title: "What is Lorem Ipsum?",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-      img: "frontend/my-app/image/pexels-fotios-photos-1279330.jpg"
+      img: "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=800",
       
     },
 
@@ -24,7 +24,7 @@ const Home = () => {
       id: 1, 
       title: "What is Lorem Ipsum?",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-      img: "frontend/my-app/image/pexels-ash-122861-376464.jpg"
+      img: "https://images.pexels.com/photos/566566/pexels-photo-566566.jpeg?auto=compress&cs=tinysrgb&w=800",
       
     },
 
@@ -32,7 +32,7 @@ const Home = () => {
       id: 1, 
       title: "What is Lorem Ipsum?",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-      img: "frontend/my-app/image/pexels-ash-122861-376464.jpg"
+      img: "https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&w=800",
       
     }
   ]
@@ -43,13 +43,13 @@ const Home = () => {
       {posts.map((post) => (
         <div className="post" key={post.id}>
           <div className="img">
-            <img src={`../upload/${post.img}`} alt="" />
+            <img src={post.img} alt="" />
           </div>
           <div className="content">
             <Link className="link" to={`/post/${post.id}`}>
               <h1>{post.title}</h1>
             </Link>
-            <p>{getText(post.desc)}</p>
+            <p>{post.desc}</p>
             <button>Read More</button>
           </div>
         </div>
