@@ -7,7 +7,7 @@ import {
   Link,
 } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import NavigationBar from "./components/NavigationBar";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
@@ -15,12 +15,13 @@ import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 import CreatePost from "./pages/CreatePost";
 import './style.scss';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 const Layout = ()=>{
   return (
     <>
-    <Navbar/>
+    <NavigationBar/>
     <Outlet/>
     <Footer/>
     </>

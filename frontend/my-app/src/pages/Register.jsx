@@ -1,21 +1,36 @@
 import React from 'react'
-import Link from 'react-router-dom'
+import { Form, Button } from 'react-bootstrap'
+
 
 const Register = () => {
   return (
-    <div className='connect'>
-      <h1>Register</h1>
+    <Form>
+    <Form.Group controlId="formBasicUserName">
+    <Form.Label>Username</Form.Label>
+    <Form.Control type="text" placeholder="Enter username" />
+  </Form.Group>
 
-      <form>
-        <input required type='text' placeholder='name'/> 
-        <input required type='email' placeholder='email'/> 
-        <input required type='password' placeholder='password'/>
-        <button> Register </button>
-        <p> This is an error!</p>
-        <a href="/login">Already have an account?</a>
 
-      </form>
-    </div>
+  <Form.Group controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+  </Form.Group>
+
+  <Form.Group controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  {/* <Form.Group controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group> */}
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form>
+
   )
 }
 
