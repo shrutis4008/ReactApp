@@ -92,8 +92,11 @@ function App() {
     // <div>
     //   Hello World.
     // </div>
- 
+ <div className='App'>
+  <div className='Container'>
   <RouterProvider router={router} />
+  </div>
+  </div>
   );
 }
 
