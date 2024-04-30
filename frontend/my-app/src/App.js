@@ -34,7 +34,6 @@ function App() {
       path: "/",
       element: <Layout/>,
       children: [
-
      
       {
         path: "/",
@@ -66,25 +65,25 @@ function App() {
   
 
 
-    {
-      path: "/login",
-      element: <Login/>,
-    },
+    // {
+    //   path: "/login",
+    //   element: <Login/>,
+    // },
 
-    {
-      path: "/register",
-      element: <Register/>,
-    },
+    // {
+    //   path: "/register",
+    //   element: <Register/>,
+    // },
 
-    {
-      path: "/post",
-      element: <SinglePost/>,
-    },
+    // {
+    //   path: "/post",
+    //   element: <SinglePost/>,
+    // },
 
-    {
-      path: "/create",
-      element: <CreatePost/>,
-    },
+    // {
+    //   path: "/create",
+    //   element: <CreatePost/>,
+    // },
 
   ]);
 
