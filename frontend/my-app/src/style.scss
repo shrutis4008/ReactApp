@@ -253,5 +253,34 @@
             
         }
 
+        // Create new post
+
+        .add{
+
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+
+            .content{
+                flex: 5;
+            }
+
+
+            .toolbar{
+                flex:2;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+            }
+
+            .ql-snow {
+                // box-sizing: border-box;
+                background-color: white;
+            }
+        }
+
+
+
     }
 
