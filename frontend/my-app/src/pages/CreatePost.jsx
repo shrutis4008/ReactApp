@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import Button from "react-bootstrap/Button";
 
 const CreatePost = () => {
   const [value, setValue] = useState("");
@@ -44,7 +45,9 @@ const CreatePost = () => {
           <div className="m-3">
             <label className="mx-3">Add image here: </label>
             <input className="d-none" type="file" />
-            <button className="btn btn-outline-primary">Upload</button>
+            <Button variant="outline-dark" size="sm">
+              Upload
+            </Button>{" "}
           </div>
         </div>
       </div>
