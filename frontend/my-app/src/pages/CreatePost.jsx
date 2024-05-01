@@ -1,40 +1,55 @@
-import React from 'react'
-import{useState} from 'react'
-import Form from 'react-bootstrap/Form'
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-
+import React from "react";
+import { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const CreatePost = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
-  console.log(value)
+  console.log(value);
   return (
     <div className="add">
-      <div className="content"> 
-      <Row>
-        {/* <Form.Label column="sm" lg={2}>
+      <div className="content">
+        <Row>
+          {/* <Form.Label column="sm" lg={2}>
           Title
         </Form.Label> */}
-        <Col>
-          <Form.Control size="sm" type="text" placeholder="Title" />
-        </Col>
-      </Row>
-<br></br>
-      <div className="editorContainer">
-      <ReactQuill theme="snow" value={value} onChange={setValue} />
-      </div>
-      
+          <Col>
+            <Form.Control
+              className="input"
+              size="sm"
+              type="text"
+              placeholder="Title"
+            />
+          </Col>
+        </Row>
+        <br></br>
+        <div className="editorContainer">
+          <ReactQuill theme="snow" value={value} onChange={setValue} />
+        </div>
       </div>
       <div className="toolbar">
-        <div className="item">item1 </div>
-        <div className="item">item2 </div>
-      </div>
+        <div className="item">
+          <h1>Publish</h1>
+          {/* <span>
+          <b>Status:</b>Draft
+         </span>
 
+         <span>
+          <b>Visibility:</b>Public
+         </span> */}
+          <div className="m-3">
+            <label className="mx-3">Add image here: </label>
+            <input className="d-none" type="file" />
+            <button className="btn btn-outline-primary">Upload</button>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 };
 
-export default CreatePost
+export default CreatePost;

@@ -1,286 +1,265 @@
+.app {
+  // Universal styling
 
+  background-color: #fad9f2;
 
-.app{
+  .font-link {
+    font-family: "Roboto", sans-serif;
+  }
+  .NavigationBar {
+    padding: 50px !important;
+  }
 
-    // Universal styling 
+  .footer {
+    margin-top: 100px;
+    padding: 20px;
+    background-color: black;
+    font-size: 15px;
+    color: #f2f0eb;
+    display: flex;
 
-    background-color: #fad9f2;
+    justify-content: right;
+  }
 
-    .font-link{
-        font-family: "Roboto", sans-serif;
+  .container {
+    // Login and Register
 
-    }
-    .NavigationBar{
-        padding:50px!important;
-      
+    .connect {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #fad9f2;
+
+      h1 {
+        font-size: 30px;
+        color: #4f434c;
       }
 
-    .footer{
-       
-        margin-top: 100px;
-        padding: 20px;
-        background-color: black;
+      form {
+        display: flex;
+        flex-direction: column;
+        background-color: #f2f0eb;
+        padding: 30px;
+        width: 300px;
+        gap: 20px;
+      }
+
+      input {
+        border: #f2f0eb;
+        border-bottom: 1px solid black;
         font-size: 15px;
-        color:#f2f0eb;
+      }
+
+      button {
+        background-color: #4f434c;
+        font-size: 25px;
+        cursor: pointer;
+        color: #f2f0eb;
+      }
+
+      a {
         display: flex;
-      
-        justify-content:right;
-        
-    }
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-
-    .container{
-
-        // Login and Register
-
-        .connect{
-            display:flex;
-            flex-direction: column ;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #fad9f2;
-
-
-
-            h1{
-
-                font-size: 30px;
-                color: #4f434c;
-            }
-
-            form{
-                display: flex;
-                flex-direction: column;
-                background-color: #f2f0eb;
-                padding: 30px;
-                width: 300px;
-                gap: 20px;
-            }
-
-            input{
-                border:#f2f0eb;
-                border-bottom: 1px solid black;
-                font-size: 15px;
-            }
-
-            button{
-                background-color: #4f434c;
-                font-size: 25px;
-                cursor: pointer;
-                color: #f2f0eb;
-            }
-
-            a{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-
-            }
-
-            p{
-                font-size: 15px;
-                color: red;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
-    }
-
-
-    
-
-    // Home
-
-    .home{
-
-
-        .posts{
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 100px;
-
-
-            .post{
-                padding-top: 30px;
-                display: flex;
-                gap: 50px;
-
-                .img{
-                    flex: 2;
-                
-          
-                  
-                img{
-                    width: 100%;
-                    max-height: 400px;
-                
-                }
-                   
-
-                }
-
-                .content{
-                    flex:3;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-
-                    h1{
-                        font-size: 30px;
-                        font-weight: bold;
-                        color: black;
-                        
-                    }
-
-                    p{
-                        font-size: 18px;
-                    }
-
-                    .button{
-                        // background-color: #4f434c;
-                        color:#4f434c;
-                        width: 0px!important;
-                        padding: 10px;
-                    }
-
-                }
-            }
-        }
-    }
-
-    // Single Post Page
-
-    .singlePost{
+      p {
+        font-size: 15px;
+        color: red;
         display: flex;
-        // flex-direction: column;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // Home
+
+  .home {
+    .posts {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+
+      .post {
+        padding-top: 30px;
+        display: flex;
         gap: 50px;
-        
 
+        .img {
+          flex: 2;
 
-        .content{
-            flex: 5;
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
-            
-
-            img{
-                width: 400px;
-                height: 300px;
-                // padding-top: 30px;    
-            }
-
-            .user{
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-size: 15px; 
-
-                img{
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    object-fit: cover;
-                }
-
-                span{
-                    font-weight: bold;
-                }
-
-            }
-
-            .edit {
-                display: flex;
-                gap: 5px;
-
-                .img{
-                    width: 20px;
-                    height: 20px;
-                    cursor: pointer;
-                }
-            }
-
-            h1 {
-                font-size: 30px;
-                color:#4f434c;
-              }
-      
-              p {
-                text-align: justify;
-                line-height: 30px;
-              }
-            }
-
-          
-        }
-// Right-side toolbar
-
-        .toolbar{
-            flex:2;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            
-
-            h1{
-                font-size: 30px;
-                color:#4f434c;
-            
-            }
-
-            h2{
-                font-size: 20px;
-            }
-
-            .post{
-                display: flex;
-            flex-direction: column;
-            
-            }
-
-            img{
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
-                    }
-            
+          img {
+            width: 100%;
+            max-height: 400px;
+          }
         }
 
-        // Create new post
+        .content {
+          flex: 3;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
-        .add{
+          h1 {
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+          }
 
-            margin-top: 20px;
-            display: flex;
-            gap: 20px;
+          p {
+            font-size: 18px;
+          }
 
-            .content{
-                flex: 5;
-            }
+          .button {
+            // background-color: #4f434c;
+            color: #4f434c;
+            width: 0px !important;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
 
+  // Single Post Page
 
-            .toolbar{
-                flex:2;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
+  .singlePost {
+    display: flex;
+    // flex-direction: column;
+    gap: 50px;
 
-            }
+    .content {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
 
-            .ql-snow {
-                // box-sizing: border-box;
-                background-color: white;
-            }
+      img {
+        width: 400px;
+        height: 300px;
+        // padding-top: 30px;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
         }
 
+        span {
+          font-weight: bold;
+        }
+      }
 
+      .edit {
+        display: flex;
+        gap: 5px;
 
+        .img {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+      }
+
+      h1 {
+        font-size: 30px;
+        color: #4f434c;
+      }
+
+      p {
+        text-align: justify;
+        line-height: 30px;
+      }
+    }
+  }
+  // Right-side toolbar
+
+  .toolbar {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    h1 {
+      font-size: 30px;
+      color: #4f434c;
     }
 
+    h2 {
+      font-size: 20px;
+    }
+
+    .post {
+      display: flex;
+      flex-direction: column;
+    }
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+  }
+
+  // Create new post
+
+  .add {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+
+    .content {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      //   gap: 10px;
+    }
+
+    .input {
+      border: 0.5px solid black;
+    }
+
+    .ql-toolbar {
+      // box-sizing: border-box;
+      background-color: white;
+      border: 0.5px solid black;
+    }
+
+    .ql-container {
+      height: 300px;
+      background-color: white;
+    }
+
+    .toolbar {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      gap: 20px;
+
+      h1 {
+        font-size: 20px;
+        margin-left: 13px;
+      }
+
+      .m-3 {
+        margin-left: none;
+        justify-content: space-between;
+      }
+    }
+  }
+}
