@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 
 const Toolbar = () => {
 
@@ -38,13 +39,15 @@ const Toolbar = () => {
       ]
   return (
     <div className="toolbar">
-        <h1>Also read!</h1>
+        <h1>Related recipes</h1>
 
         {posts.map((post) => (
             <div className="post" key={post.id}>
             <img src={post.img} alt="" />
             <h2>{post.title}</h2>
-            <button>Read</button>
+            <Button variant="outline-secondary" size="sm" >Read</Button>{' '}
+            {/* <button>Read</button> */}
+
 
             </div>
         ))}

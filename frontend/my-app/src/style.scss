@@ -19,7 +19,7 @@
        
         margin-top: 100px;
         padding: 20px;
-        background-color: #4f434c;
+        background-color: black;
         font-size: 15px;
         color:#f2f0eb;
         display: flex;
@@ -103,7 +103,7 @@
             margin-top: 50px;
             display: flex;
             flex-direction: column;
-            gap: 200px;
+            gap: 100px;
 
 
             .post{
@@ -128,27 +128,25 @@
                 .content{
                     flex:3;
                     display: flex;
-                    // flex-direction: column;
+                    flex-direction: column;
                     justify-content: space-between;
 
                     h1{
                         font-size: 30px;
                         font-weight: bold;
+                        color: black;
+                        
                     }
 
                     p{
                         font-size: 18px;
                     }
 
-                    button{
-                        width: max-content;
-                        border: #4f434c;
-                        // padding: 10px 20px;
-                        background-color: none;
-                        color:#4f434c; 
-                        border-color:#fad9f2;
-
-                        
+                    .button{
+                        // background-color: #4f434c;
+                        color:#4f434c;
+                        width: 0px!important;
+                        padding: 10px;
                     }
 
                 }
@@ -221,6 +219,7 @@
 
           
         }
+// Right-side toolbar
 
         .toolbar{
             flex:2;
@@ -228,16 +227,22 @@
             flex-direction: column;
             gap: 20px;
 
+            
+
             h1{
-                font-size: 20px;
+                font-size: 30px;
                 color:#4f434c;
             
+            }
+
+            h2{
+                font-size: 20px;
             }
 
             .post{
                 display: flex;
             flex-direction: column;
-            gap: 20px;
+            
             }
 
             img{

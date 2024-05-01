@@ -25,7 +25,7 @@ const SinglePost = () => {
           <img src={Delete} alt="" />
         </div>
       </div>
-      <h1>Lorem ipsum dolor sit amet!</h1>
+      <h1>Lorem ipsum dolor sit amet.</h1>
       <p> 
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet commodo nulla facilisi nullam vehicula ipsum a arcu. Velit egestas dui id ornare arcu odio ut. Ipsum a arcu cursus vitae congue mauris rhoncus. Faucibus pulvinar elementum integer enim. In aliquam sem fringilla ut morbi. Auctor eu augue ut lectus arcu bibendum at. Vel orci porta non pulvinar neque laoreet. Dui vivamus arcu felis bibendum ut tristique. Quam lacus suspendisse faucibus interdum posuere lorem. Congue eu consequat ac felis donec et odio. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin. Magna sit amet purus gravida quis blandit turpis cursus. Morbi tempus iaculis urna id volutpat lacus laoreet non curabitur.
 
