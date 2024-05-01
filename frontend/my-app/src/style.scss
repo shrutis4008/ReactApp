@@ -2,6 +2,11 @@
 
     background-color: #fad9f2;
 
+    .font-link{
+        font-family: "Roboto", sans-serif;
+
+    }
+
     .container{
 
         // Login and Register
@@ -113,7 +118,7 @@
                 .content{
                     flex:3;
                     display: flex;
-                    flex-direction: column;
+                    // flex-direction: column;
                     justify-content: space-between;
 
                     h1{
@@ -126,16 +131,66 @@
                     }
 
                     button{
-                        width: max-content;
-                        border: none;
-                        background-color: #4f434c;
-                        color:#f2f0eb;
+                        width: 120px;
+                        border: #4f434c;padding: 10px 20px;
+                        background-color: nonee;
+                        color:#4f434c; 
                         border-color:#fad9f2;
+
+                        
                     }
 
                 }
             }
         }
+    }
+
+    // Single Post Page
+
+    .singlePost{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        
+
+
+        .content{
+            flex: 3;
+            
+
+            img{
+                width: 400px;
+                height: 300px;
+                // padding-top: 30px;    
+            }
+
+            .user{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 20px; 
+
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                span{
+                    font-weight: bold;
+                }
+
+            }
+
+
+
+        }
+
+        .menu{
+            flex:1;
+        }
+
     }
 
 }
