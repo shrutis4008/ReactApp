@@ -19,8 +19,9 @@
     font-size: 15px;
     color: #f2f0eb;
     display: flex;
+    flex-direction: column;
 
-    justify-content: right;
+    justify-content: left;
   }
 
   .container {
@@ -263,14 +264,5 @@
         justify-content: space-between;
       }
     }
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-
-    margin-top: 50px;
-    width: auto;
   }
 }
