@@ -6,12 +6,21 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
 
-// {
-//   origin: "http://localhost:3000",
-//   credentials: true,
-// }
+app.use(cors(corsOptions));
+// const app = express();
+
+// app.use(cors);
+
+// // {
+// //   origin: "http://localhost:3000",
+// //   credentials: true,
+// // }
 
 app.use(express.json());
 app.use("/api/posts", postRoutes);
