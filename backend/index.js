@@ -1,7 +1,15 @@
 import express from "express";
+import postRoutes from "./routes/posts.js";
+import userRoutes from "./routes/users.js";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 
-app.listen(3000, () => {
-  console.log("app running on port 3000");
+app.use(express.json());
+app.use("/api/posts", postRoutes);
+app.use("/api/users", usersRoutes);
+app.use("/api/auth", authRoutes);
+
+app.listen(3001, () => {
+  console.log("app currently running on port 3001");
 });
