@@ -1,17 +1,8 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
 
 const Footer = () => {
   return (
-    <footer className="footer font-link">
-      <Container fluid>
-        <Row>
-          <span>
-            Made with ♥ and <b>React.js</b>.
-          </span>
-        </Row>
-      </Container>
-    </footer>
+    <div className="footer font-link">Made for ITMD 504 Final Project.</div>
   );
 };
 

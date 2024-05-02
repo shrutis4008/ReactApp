@@ -1,4 +1,3 @@
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,57 +13,51 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import SinglePost from "./pages/SinglePost";
 import CreatePost from "./pages/CreatePost";
-import './style.scss';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import "./style.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-
-const Layout = ()=>{
+const Layout = () => {
   return (
     <>
-    <NavigationBar/>
-    <Outlet/>
-    <Footer/>
+      <NavigationBar />
+      <Outlet />
+      <Footer />
     </>
-  )
-
-}
+  );
+};
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Layout/>,
+      element: <Layout />,
       children: [
-     
-      {
-        path: "/",
-        element: <Home/>,
-      },
+        {
+          path: "/",
+          element: <Home />,
+        },
 
-      {
-        path: "/create",
-        element: <CreatePost/>,
-      },
+        {
+          path: "/create",
+          element: <CreatePost />,
+        },
 
-      {
-        path: "/login",
-        element: <Login/>,
-      },
+        {
+          path: "/login",
+          element: <Login />,
+        },
 
-      {
-        path: "/register",
-        element: <Register/>,
-      },
+        {
+          path: "/register",
+          element: <Register />,
+        },
 
-      {
-        path: "/post",
-        element: <SinglePost/>,
-      },
-    ]
-  
+        {
+          path: "/post",
+          element: <SinglePost />,
+        },
+      ],
     },
-  
-
 
     // {
     //   path: "/login",
@@ -85,21 +78,18 @@ function App() {
     //   path: "/create",
     //   element: <CreatePost/>,
     // },
-
   ]);
 
   return (
     // <div>
     //   Hello World.
     // </div>
- <div className='app'>
-  <div className='container'>
-  <RouterProvider router={router} />
-  </div>
-  </div>
+    <div className="app">
+      <div className="container">
+        <RouterProvider router={router} />
+      </div>
+    </div>
   );
 }
-
-
 
 export default App;
