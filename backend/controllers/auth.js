@@ -1,5 +1,5 @@
 import { db } from "../db.js";
-import cors from "cors";
+// import bcrypt from "bcryptjs";
 
 export const register = (req, res) => {
   // first check if user exists
@@ -8,6 +8,9 @@ export const register = (req, res) => {
   db.query(q, [req.body.email, req, body.username], (err, data) => {
     if (err) return res.jason(err);
     if (data.length) return res.status(409).json("Account already exists.");
+
+    // const salt = bcrypt.genSaltSync(10);
+    // const hash = bcrypt.hashSync("B4c0//", salt);
 
     //   if not, create a new user
     const q =
