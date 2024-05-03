@@ -1,52 +1,33 @@
 import { db } from "../db.js";
-// import bcrypt from "bcryptjs";
+import bcrypt from "bcryptjs";
+// import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
-  console.log("i got a call from front-end.");
-  const { username, email, password } = req.body;
+  //CHECK EXISTING USER
+  const q = "SELECT * FROM userdata WHERE email = ? OR username = ?";
 
-  // res
-  //   .status(200)
-  //   .json({
-  //     message: `username: ${username}, \n email: ${email} \n password: ${password}`,
-  //   });
-  // first check if user exists
-  // const q = "SELECT * FROM userdata WHERE email = ? OR username = ?";
+  db.query(
+    q,
+    [req.body.email, req.body.username, req.body.password],
+    (err, data) => {
+      if (err) return res.status(500).json(err);
+      if (data.length) return res.status(409).json("User already exists!");
 
-  // db.query(q, [req.body.email, req, body.username], (err, data) => {
-  //   if (err) return res.jason(err);
-  //   if (data.length) return res.status(409).json("Account already exists.");
+      //Hash the password and create a user
+      // const salt = bcrypt.genSaltSync(10);
+      // const hash = bcrypt.hashSync(req.body.password, salt);
 
-  // const salt = bcrypt.genSaltSync(10);
-  // const hash = bcrypt.hashSync("B4c0//", salt);
+      const q =
+        "INSERT INTO userdata(`username`,`email`,`password`) VALUES (?)";
+      const values = [req.body.username, req.body.email, req.body.password];
 
-  //   //   if not, create a new user
-  const q = "INSERT INTO newtable (`username`, `email`, `password`) VALUE (?)";
-  const values = [username, email, password];
-
-  try {
-    db.connect(function (err) {
-      if (err) {
-        console.error("error connecting: " + err.stack);
-        return;
-      }
-
-      console.log("connected as id " + db.threadId);
-    });
-    db.query(
-      `INSERT INTO newtable (username, email, password) VALUE (${username}, ${email}, ${password})`,
-      (err, data) => {
-        if (err)
-          return res(401).json({ message: "getting an error in db.query" });
-        return res.status(200).json("Successfully created user");
-      }
-    );
-  } catch (err) {
-    console.log(err);
-    return res.status(401).json("gtting and error");
-  }
+      db.query(q, [values], (err, data) => {
+        if (err) return res.status(500).json(err);
+        return res.status(200).json("User has been created.");
+      });
+    }
+  );
 };
 
 export const login = (req, res) => {};
-
 export const logout = (req, res) => {};

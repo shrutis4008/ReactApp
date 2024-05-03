@@ -23,7 +23,7 @@ const Register = () => {
     try {
       console.log("inputs: ", inputs);
       const res = await axios.post(
-        "http://localhost:3001/api/auth/register",
+        "http://localhost:3001/api/auth/register/",
         inputs
       );
       console.log(res);
