@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [inputs, SetInputs] = useState({
@@ -69,6 +70,12 @@ const Register = () => {
       <Button onClick={handleSubmit} variant="primary" type="submit">
         Submit
       </Button>
+
+      <p> </p>
+
+      <Link to="/login" className="register" variant="primary" type="submit">
+        Registered already? Login Instead.
+      </Link>
     </Form>
   );
 };
