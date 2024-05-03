@@ -37,7 +37,7 @@ const Register = () => {
         <Form.Control
           type="text"
           placeholder="Enter username"
-          name="username"
+          name="name"
           onChange={handleChange}
         />
       </Form.Group>

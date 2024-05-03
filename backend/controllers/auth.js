@@ -15,7 +15,7 @@ export const register = (req, res) => {
     //   if not, create a new user
     const q =
       "INSERT INTO userdata (`username`, `email`, `password`) VALUE (?)";
-    const values = [req.body.username, req.body.email, req.body.password];
+    const values = [req.body.name, req.body.email, req.body.password];
 
     db.query(q, [values], (err, data) => {
       if (err) return res.jason(err);
