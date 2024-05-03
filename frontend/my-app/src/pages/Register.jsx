@@ -21,23 +21,24 @@ const Register = () => {
     e.preventDefault();
 
     try {
+      console.log("inputs: ", inputs);
       const res = await axios.post(
-        "http://localhost:7003/api/auth/register",
+        "http://localhost:3001/api/auth/register",
         inputs
       );
       console.log(res);
     } catch (err) {
-      console.log(err);
+      console.log("getting error from front-end", err);
     }
   };
   return (
-    <Form className="">
+    <Form className="register">
       <Form.Group controlId="formBasicUserName">
         <Form.Label>Username</Form.Label>
         <Form.Control
           type="text"
           placeholder="Enter username"
-          name="name"
+          name="username"
           onChange={handleChange}
         />
       </Form.Group>
