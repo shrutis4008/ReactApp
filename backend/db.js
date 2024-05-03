@@ -6,3 +6,11 @@ export const db = mysql.createConnection({
   passowrd: "itmd504project",
   databse: "test",
 });
+
+con.connext(function (err) {
+  if (err) {
+    console.log("Connection Error.");
+  } else {
+    console.log("Connected.");
+  }
+});

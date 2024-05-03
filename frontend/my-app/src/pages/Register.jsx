@@ -20,14 +20,17 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:7003/api/auth/register", inputs);
+      const res = await axios.post(
+        "http://localhost:7003/api/auth/register",
+        inputs
+      );
       console.log(res);
     } catch (err) {
       console.log(err);
     }
   };
   return (
-    <Form>
+    <Form className="">
       <Form.Group controlId="formBasicUserName">
         <Form.Label>Username</Form.Label>
         <Form.Control
