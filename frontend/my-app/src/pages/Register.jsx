@@ -9,7 +9,11 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
-  });
+  }
+
+); 
+
+const [err, setError] = useState(null)
 
   const handleChange = (e) => {
     SetInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -28,7 +32,7 @@ const Register = () => {
       );
       console.log(res);
     } catch (err) {
-      console.log("getting error from front-end", err);
+      setError(err.response.data)
     }
   };
   return (
@@ -71,11 +75,13 @@ const Register = () => {
       <Button onClick={handleSubmit} variant="primary" type="submit">
         Submit
       </Button>
+      {err && <p>This user is already registered. Please login.</p>}
 
       <p> </p>
-
-      <Link to="/login" className="register" variant="primary" type="submit">
-        Registered already? Login Instead.
+      <span>
+      Registered already? 
+      </span> <Link to="/login" className="register" variant="primary" type="submit">
+        Login.
       </Link>
     </Form>
   );
