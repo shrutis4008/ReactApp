@@ -13,7 +13,7 @@ const Register = () => {
 
 ); 
 
-const [err, setError] = useState(null)
+// const [err, setError] = useState(null)
 
   const handleChange = (e) => {
     SetInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -25,16 +25,18 @@ const [err, setError] = useState(null)
     e.preventDefault();
 
     try {
-      console.log("inputs: ", inputs);
-      const res = await axios.post(
-        "http://localhost:3001/api/auth/register/",
-        inputs
-      );
-      console.log(res);
-    } catch (err) {
-      setError(err.response.data)
-    }
+      // console.log("inputs: ", inputs);
+      const res = await axios.post("http://localhost:3001/api/auth/register/",inputs)
+        console.log(res)
+      }catch(err){
+        console.log(err)
+      }
+    //   console.log(res);
+    // } catch (err) {
+    //   setError(err.response.data)
+    // }
   };
+  
   return (
     <Form className="register">
       <Form.Group controlId="formBasicUserName">
@@ -75,7 +77,7 @@ const [err, setError] = useState(null)
       <Button onClick={handleSubmit} variant="primary" type="submit">
         Submit
       </Button>
-      {err && <p>This user is already registered. Please login.</p>}
+      {<p>This user is already registered. Please login.</p>}
 
       <p> </p>
       <span>
