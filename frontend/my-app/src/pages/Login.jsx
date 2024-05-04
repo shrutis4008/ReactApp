@@ -1,21 +1,67 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"
+import Validation from './';
+
+
+
 
 const Login = () => {
+const [inputs, SetInputs] = useState({
+    username: "",
+    password: "",
+  }
+
+); 
+
+const [err, setErrors] = useState(null);
+
+const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    SetInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  // console.log(inputs);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors(Validation(inputs));
+    if(errors.username === "" && errors.password == ""){
+      axios.post("http://localhost:3001/api/auth/login", inputs)
+              .then(res=> {
+                navigate("http://localhost:3000/");
+              }).catch(err => console.log(err));
+            
+          }
+    }
+
+  //   try {
+  //     // console.log("inputs: ", inputs);
+  //     await axios.post(
+  //       "http://localhost:3001/api/auth/login",
+  //       inputs);
+  //       navigate("http://localhost:3000/");
+  //   } catch (err) {
+  //     setError(err.response.data)
+  //   }
+  // };
   return (
     <div classname="login">
       <Form>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label>Username</Form.Label>
           <Form.Control
             className="email"
-            type="email"
-            placeholder="Enter email"
+            type="text"
+            placeholder="Enter username"
+            name="password"
+            onChange={handleChange}
           />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+          
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -24,26 +70,31 @@ const Login = () => {
             className="password"
             type="password"
             placeholder="Password"
+            name="password"
+            onChange={handleChange}
           />
         </Form.Group>
         {/* <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group> */}
-        <Button className="button" variant="primary" type="submit">
-          Submit
+        <Button onClick={handleSubmit}className="button" variant="primary" type="submit">
+          Login
         </Button>
+        {err && <p>{err}</p>}
 
         <br></br>
         <p> </p>
-
+        <span> 
+        New User? 
         <Link
           to="/register"
           className="register"
           variant="primary"
           type="submit"
         >
-          New User? Register Instead!
+         Register.
         </Link>
+        </span>
       </Form>
     </div>
   );

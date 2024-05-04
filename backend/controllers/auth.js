@@ -29,5 +29,25 @@ export const register = (req, res) => {
   );
 };
 
-export const login = (req, res) => {};
+export const login = (req, res) => {
+const q = "SELECT * from users WHERE username=? AND password=?"
+// const values =[
+//   req.body.usrname,
+//   req.body.password
+// ]
+if (err) return res.json(err);
+if (data.length === 0) return res.status(404).json('User not found!')
+
+db.query(
+  q,
+  [req.body.username, req.body.password],
+  (err, data) => {
+    if (err) return res.jason("login failed")
+    if (data.length) return res.status(409).json("User already exists!");
+  })
+
+
+
+
+};
 export const logout = (req, res) => {};
