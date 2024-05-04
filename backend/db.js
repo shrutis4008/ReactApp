@@ -2,11 +2,11 @@ import mysql from "mysql2";
 import mysql2 from "mysql2";
 
 export const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "itmd504project",
-  databse: "test",
-  port: "3306",
+  host: "localhost", 
+  port: "8889",
+  user: "root",    
+  password: "root",   
+  database: "userdata",
 });
 
 /*
