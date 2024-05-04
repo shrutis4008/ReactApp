@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-import Validation from './';
+
 
 
 
@@ -17,7 +17,7 @@ const [inputs, SetInputs] = useState({
 
 ); 
 
-const [err, setErrors] = useState(null);
+const [err, setError] = useState(null);
 
 const navigate = useNavigate();
 
@@ -29,26 +29,30 @@ const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors(Validation(inputs));
-    if(errors.username === "" && errors.password == ""){
-      axios.post("http://localhost:3001/api/auth/login", inputs)
-              .then(res=> {
-                navigate("http://localhost:3000/");
-              }).catch(err => console.log(err));
-            
-          }
+      try {
+      // console.log("inputs: ", inputs);
+      await axios.post(
+        "http://localhost:3001/api/auth/login",
+        inputs);
+        navigate("http://localhost:3000/");
+    } catch (err) {
+      setError(err.response.data)
     }
+  };
 
-  //   try {
-  //     // console.log("inputs: ", inputs);
-  //     await axios.post(
-  //       "http://localhost:3001/api/auth/login",
-  //       inputs);
-  //       navigate("http://localhost:3000/");
-  //   } catch (err) {
-  //     setError(err.response.data)
-  //   }
-  // };
+
+
+    // setErrors(Validation(inputs));
+    // if(errors.username === "" && errors.password == ""){
+    //   axios.post("http://localhost:3001/api/auth/login", inputs)
+    //           .then(res=> {
+    //             navigate("http://localhost:3000/");
+    //           }).catch(err => console.log(err));
+            
+    //       }
+    // }
+
+  
   return (
     <div classname="login">
       <Form>
