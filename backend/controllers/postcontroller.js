@@ -27,3 +27,9 @@ export const getAllPosts = async (req, res, next) => {
     posts,
   });
 };
+
+// single post by id
+
+// edit post
+
+// delete post

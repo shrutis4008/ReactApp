@@ -10,11 +10,10 @@ import Button from "react-bootstrap/Button";
 const CreatePost = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
-  // const [file, setFile] = useState(null);
 
-const handleClick = async e => {
-  e.preventDefault()
-}
+  const handleClick = async (e) => {
+    e.preventDefault();
+  };
   // console.log(value);
   return (
     <div className="add">
@@ -29,7 +28,7 @@ const handleClick = async e => {
               size="sm"
               type="text"
               placeholder="Title"
-              onChange={e=>setTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </Col>
         </Row>
