@@ -1,46 +1,28 @@
-import mongoose from 'mongoose'
-import jwt from "jsonwebtoken"
+import Post from "../models/postSchema.js"
 
 
-export const getPosts = (req, res) => {
-  // query to get all posts 
-  const q = req.query ? "SELECT * FROM posts";
+export const createPost = async (req, res, next) =>{
+    req.body.user= req.user.id
+const {title, description, user}= req.body;
+const post = await Post.create({
+    title, description, user
+});
+res.status(201).json({
+    success:true, 
+    post
+})
+}
 
-  db.query(q,[req.query], (err, data)=>{
-    if (err) return res.status(500).json(err)
-      return res.status(200).json(data);
-  })
-  // res.json("from controller");
-};
-
-export const getPost = (req, res) => {
-// query post by ID
-  const q = "SELECT `usermame`,`title`,`desc`, `p.img`, `date` FROM users u JOIN posts p ON u.id=p.uid WHERE p.id=?"
-
-  db.query(q,[req.params.id], (err, data)=>{
-    if (err) return res.status(500).json(err)
-      return res.status(200).json(data);
-  })
-  // res.json("from controller");
-};
-
-export const addPost = (req, res) => {
-  res.json("from controller");
-};
-
-export const deletePost = (req, res) => {
-  const token = req.cookie.access_token 
-  if(!token) return res.status(401).json("No permission to delete this post!")
-
-
-
-  // add jwt token verification
-
-
-
-  // res.json("from controller");
-};
-
-export const updatePost = (req, res) => {
-  res.json("from controller");
-};
+export const getAllPosts = async (req, res,next)=>{
+    const posts = Post.find()
+    if (!posts){
+        res.status(400).json({
+            success:false,
+            message:"No posts available."
+        })
+    }
+    res.status(200).json({
+        success:true,
+        posts
+    })
+}

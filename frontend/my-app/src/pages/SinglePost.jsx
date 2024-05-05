@@ -6,51 +6,53 @@ import Toolbar from "../components/Toolbar";
 import {useState} from "react"
 import {useEffect} from "react"
 import moment from "moment"
+import axios from 'axios'
+import { useNavigate } from "react-router-dom"
+
 
 
 const SinglePost = () => {
 
-  const Home = () => {
 
     const [post,setPost] = useState({})
 
-    const location = useLocation()
-    const navigate = useNavigate()
+    // // const location = useLocation()
+    // // const navigate = useNavigate()
 
-    const postId = location.pathname.split("/")[2]
+    // const postId = location.pathname.split("/")[2]
 
-    const {currentUser} = useContext(AuthContext)
+    // // const {currentUser} = useContext(AuthContext)
   
-    useEffect(()=> {
-      const fetchData = async () =>{
-        try{
-          const res = await axios.get(`/post/${postId}`);
-          setPosts(res.data);
-        } catch (err){
-          console.log(err);
-        }
-      };
+    // useEffect(()=> {
+    //   const fetchData = async () =>{
+    //     try{
+    //       const res = await axios.get(`/post/${postId}`);
+    //       setPosts(res.data);
+    //     } catch (err){
+    //       console.log(err);
+    //     }
+    //   };
   
-      fetchData();
+    //   fetchData();
   
-    },[postId])
+    // },[postId])
 
-    const handleDelete = async ()=> {
-      try{
-        await axios.delete(`/post/${postId}`);
-        navigate("/")      
-        } catch (err){
-        console.log(err);
-      }
-
-
-
-
-    }
+    // const handleDelete = async ()=> {
+    //   try{
+    //     await axios.delete(`/post/${postId}`);
+    //     navigate("/")      
+    //     } catch (err){
+    //     console.log(err);
+    //   }
 
 
 
-    }
+
+    // }
+
+
+
+    // }
 
   return (
     <div className="singlePost font-link">
@@ -68,12 +70,12 @@ const SinglePost = () => {
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow}</p>
           </div>
-          {currentUser.username === post.username && 
+          {/* {currentUser.username === post.username &&  */}
           (<div className="edit">
             <Link to={`/create?edit=2`}>
               <img src={Edit} alt="" />
             </Link>
-            <img onClick={handleDelete} src={Delete} alt="" />
+            {/* <img onClick={handleDelete} src={Delete} alt="" /> */}
           </div>)}
         </div>
         <h1>{post.title}Lorem ipsum dolor sit amet.</h1>
@@ -85,5 +87,5 @@ const SinglePost = () => {
     </div>
   );
 };
-}
+
 export default SinglePost;

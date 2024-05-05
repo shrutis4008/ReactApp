@@ -29,9 +29,23 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+// password encryption
+userSchema.pre("save", async function (next){
+    if (!this.isModified("password")){
+        next ()
+    } this.password= await bcrypt.hash(this.password, 8)
+})
+// compares encrypted password to actual typed pw
+userSchema.methods.comparePassword = async function (enteredPassword){
+    return await bcrypt.compare(enteredPassword, this.password)
+}
+
+userSchema.methods.getJWTToken = async function (){
+    return jwt.sign({
+        id:this._id
+    },process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE})
+}
+
 var User = mongoose.model('User', userSchema);
 
 export default User
-// userSchema.methods.getJWTToken = async function (){
-// }
-    

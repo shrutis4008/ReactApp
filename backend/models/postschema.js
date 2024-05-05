@@ -18,8 +18,14 @@ const postsSchema = new mongoose.Schema({
         // validate: [validator.isEmail, "please enter a valid email"],
         // unique: [true, "email already exists"],
         required: [true, "Please enter a description for your post."],
-        maxLength: [1000, "Cannot exceed 1000 characters."],
+        maxLength: [1024, "Cannot exceed 1000 characters."],
 
+    },
+
+    user:{
+        type:mongoose.Schema.ObjectId,
+        ref:"User",
+        required: true,
     },
 
     // image:{
@@ -29,14 +35,14 @@ const postsSchema = new mongoose.Schema({
 
     date:{
         type:Date,
-        required: [true, "Please enter password."],
+        default: Date.now,
         // minLength: [8, "Cannot be less than 8 characters."],
         // select: false,
     }
 })
 
-var User = mongoose.model('Posts', postsSchema);
+var Post = mongoose.model('Posts', postsSchema);
 
-export default User
+export default Post
 // userSchema.methods.getJWTToken = async function (){
 // }
