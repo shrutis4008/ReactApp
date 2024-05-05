@@ -5,6 +5,7 @@ import cors from "cors"
 import app from "./app.js"
 import connectDatabase from "./config/database.js";
 import dotenv from "dotenv"
+import axios from 'axios'
 
 // import db from "./db.js"
 

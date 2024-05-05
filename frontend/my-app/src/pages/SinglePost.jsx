@@ -15,6 +15,7 @@ const SinglePost = () => {
     const [post,setPost] = useState({})
 
     const location = useLocation()
+    const navigate = useNavigate()
 
     const postId = location.pathname.split("/")[2]
 
@@ -33,6 +34,23 @@ const SinglePost = () => {
       fetchData();
   
     },[postId])
+
+    const handleDelete = async ()=> {
+      try{
+        await axios.delete(`/post/${postId}`);
+        navigate("/")      
+        } catch (err){
+        console.log(err);
+      }
+
+
+
+
+    }
+
+
+
+    }
 
   return (
     <div className="singlePost font-link">
@@ -55,7 +73,7 @@ const SinglePost = () => {
             <Link to={`/create?edit=2`}>
               <img src={Edit} alt="" />
             </Link>
-            <img src={Delete} alt="" />
+            <img onClick={handleDelete} src={Delete} alt="" />
           </div>)}
         </div>
         <h1>{post.title}Lorem ipsum dolor sit amet.</h1>

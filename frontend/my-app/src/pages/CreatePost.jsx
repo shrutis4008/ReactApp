@@ -9,8 +9,13 @@ import Button from "react-bootstrap/Button";
 
 const CreatePost = () => {
   const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
+  // const [file, setFile] = useState(null);
 
-  console.log(value);
+const handleClick = async e => {
+  e.preventDefault()
+}
+  // console.log(value);
   return (
     <div className="add">
       <div className="content">
@@ -24,6 +29,7 @@ const CreatePost = () => {
               size="sm"
               type="text"
               placeholder="Title"
+              onChange={e=>setTitle(e.target.value)}
             />
           </Col>
         </Row>
@@ -45,8 +51,8 @@ const CreatePost = () => {
           <div className="m-3">
             <label className="mx-3">Add image here: </label>
             <input className="d-none" type="file" />
-            <Button variant="outline-dark" size="sm">
-              Upload
+            <Button variant="outline-dark" size="sm" onClick={handleClick}>
+              Publish
             </Button>{" "}
           </div>
         </div>
