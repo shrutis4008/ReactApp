@@ -1,10 +1,9 @@
 .footer {
   margin-top: 100px;
-  padding: 20px;
-  background-color: black;
+
   font-size: 15px;
-  color: #f2f0eb;
-  display: flex;
+  color: black;
+  // display: flex;
 
   justify-content: right;
   position: bottom;
@@ -23,17 +22,11 @@
     padding: 50px !important;
   }
 
-  // Login page
+  // Login page: bootstrap inline styling
 
-  .body {
-    color: purple;
-  }
+  // Register page : bootstrap inline styling
 
-  // Register page
-  .register {
-  }
-
-  // Landing Page
+  // Landing Page: bootstrap inline styling
 
   .home {
     .posts {

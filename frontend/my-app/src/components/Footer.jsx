@@ -2,7 +2,13 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer font-link">Made for ITMD 504 Final Project.</div>
+    <footer className="footer font-link pt-4 ">
+      <div className="container-fluid">
+        <div className="row"></div>
+      </div>
+
+      <div className="text-center py-3">Made for final project.</div>
+    </footer>
   );
 };
 

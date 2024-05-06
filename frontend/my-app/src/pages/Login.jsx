@@ -3,23 +3,19 @@ import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-
-
-
+// baserurl/login
 
 const Login = () => {
-const [inputs, SetInputs] = useState({
+  const [inputs, SetInputs] = useState({
     username: "",
     password: "",
-  }
+  });
 
-); 
+  const [err, setError] = useState(null);
 
-const [err, setError] = useState(null);
-
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     SetInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -29,30 +25,25 @@ const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      try {
+    try {
       // console.log("inputs: ", inputs);
-      await axios.post(
-        "http://localhost:3001/api/auth/login",
-        inputs);
-        navigate("http://localhost:3000/");
+      await axios.post("/auth/login", inputs);
+      // navigate("http://localhost:3000/");
     } catch (err) {
-      setError(err.response.data)
+      console.log(err);
     }
   };
 
+  // setErrors(Validation(inputs));
+  // if(errors.username === "" && errors.password == ""){
+  //   axios.post("http://localhost:3001/api/auth/login", inputs)
+  //           .then(res=> {
+  //             navigate("http://localhost:3000/");
+  //           }).catch(err => console.log(err));
 
+  //       }
+  // }
 
-    // setErrors(Validation(inputs));
-    // if(errors.username === "" && errors.password == ""){
-    //   axios.post("http://localhost:3001/api/auth/login", inputs)
-    //           .then(res=> {
-    //             navigate("http://localhost:3000/");
-    //           }).catch(err => console.log(err));
-            
-    //       }
-    // }
-
-  
   return (
     <div classname="login">
       <Form>
@@ -63,9 +54,9 @@ const navigate = useNavigate();
             type="text"
             placeholder="Enter username"
             name="password"
+            style={{ marginBottom: "20px" }}
             onChange={handleChange}
           />
-          
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
@@ -81,23 +72,29 @@ const navigate = useNavigate();
         {/* <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group> */}
-        <Button onClick={handleSubmit}className="button" variant="primary" type="submit">
+        <Button
+          onClick={handleSubmit}
+          className="button"
+          variant="primary"
+          type="submit"
+          style={{ marginTop: "20px", marginRight: "10px" }}
+        >
           Login
         </Button>
         {err && <p>{err}</p>}
 
         <br></br>
         <p> </p>
-        <span> 
-        New User? 
-        <Link
-          to="/register"
-          className="register"
-          variant="primary"
-          type="submit"
-        >
-         Register.
-        </Link>
+        <span>
+          New User? &nbsp;
+          <Link
+            to="/register"
+            className="register"
+            variant="primary"
+            type="submit"
+          >
+            Register
+          </Link>
         </span>
       </Form>
     </div>

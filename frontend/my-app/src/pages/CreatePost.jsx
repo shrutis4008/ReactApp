@@ -7,6 +7,8 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Button from "react-bootstrap/Button";
 
+// baserurl/create
+
 const CreatePost = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
@@ -36,24 +38,23 @@ const CreatePost = () => {
         <div className="editorContainer">
           <ReactQuill theme="snow" value={value} onChange={setValue} />
         </div>
+        <div className="m-3">
+          <label className="mx-3">Upload image here: </label>
+          <input className="d-none" type="file" />
+          <Button variant="outline-dark" size="sm" onClick={handleClick}>
+            Upload
+          </Button>{" "}
+        </div>
       </div>
-      <div className="toolbar">
-        <div className="item">
-          <h1>Publish</h1>
-          {/* <span>
-          <b>Status:</b>Draft
-         </span>
 
-         <span>
-          <b>Visibility:</b>Public
-         </span> */}
-          <div className="m-3">
-            <label className="mx-3">Add image here: </label>
-            <input className="d-none" type="file" />
-            <Button variant="outline-dark" size="sm" onClick={handleClick}>
-              Publish
-            </Button>{" "}
-          </div>
+      <div className="item">
+        <h1 style={{ marginLeft: "30px" }}></h1>
+        <div className="m-3">
+          <label className="mx-3"></label>
+          <input className="d-none" type="file" />
+          <Button variant="primary" size="sm" onClick={handleClick}>
+            Create Post
+          </Button>{" "}
         </div>
       </div>
     </div>

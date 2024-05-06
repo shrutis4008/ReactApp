@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
+// baseurl/
+
 const Home = () => {
   const [posts, setPosts] = useState([]);
 

@@ -12,4 +12,5 @@ app.use(cookieparser());
 // route use
 app.use("/api/auth", user);
 app.use("/api/post", post);
+
 export default app;
