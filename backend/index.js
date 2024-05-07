@@ -14,24 +14,23 @@ const corsOptions = {
   methods: "OPTIONS, POST,GET, PUT",
 };
 
-// process.on("uncaughtException", (err) => {
-//   console.log(`error:${err.message}`);
-//   process.exit(1);
-// });
+process.on("uncaughtException", (err) => {
+  console.log(`error:${err.message}`);
+  process.exit(1);
+});
 
 dotenv.config({ path: "./config/config.env" });
 app.use(cors(corsOptions));
 
 connectDatabase();
 
-// const server =
-app.listen(3001, () => {
+const server = app.listen(3001, () => {
   console.log("app currently running on port 3001");
 });
 
-// process.on("unhandledRejection", (err) => {
-//   console.log(`error:${err.message}`);
-//   server.close(() => {
-//     process.exit(1);
-//   });
-// });
+process.on("unhandledRejection", (err) => {
+  console.log(`error:${err.message}`);
+  server.close(() => {
+    process.exit(1);
+  });
+});

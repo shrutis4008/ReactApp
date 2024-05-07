@@ -1,9 +1,9 @@
 import Post from "../models/postSchema.js";
-// import cathAsyncErrors from "../middleware/cathAsyncErrors.js";
+import cathAsyncErrors from "../middleware/cathAsyncErrors.js";
 
 //Create a post with fields title, descrption and username
-// cathAsyncErrors()
-export const createPost = async (req, res, next) => {
+//
+export const createPost = cathAsyncErrors(async (req, res, next) => {
   try {
     req.body.user = req.user.id;
     const { title, description, user } = req.body;
@@ -22,10 +22,10 @@ export const createPost = async (req, res, next) => {
       message: `ERROR ${error.message}`,
     });
   }
-};
+});
 
 // Get all posts
-export const getAllPosts = async (req, res, next) => {
+export const getAllPosts = cathAsyncErrors(async (req, res, next) => {
   try {
     const posts = await Post.find();
     if (!posts) {
@@ -44,10 +44,10 @@ export const getAllPosts = async (req, res, next) => {
       message: `ERROR ${error.message}`,
     });
   }
-};
+});
 
 // Edit a post
-export const editPost = async (req, res, next) => {
+export const editPost = cathAsyncErrors(async (req, res, next) => {
   try {
     let singlePost = await Post.findById(req.params.id);
     if (!singlePost) {
@@ -72,11 +72,11 @@ export const editPost = async (req, res, next) => {
       message: `ERROR ${error.message}`,
     });
   }
-};
+});
 
 // Single post
 
-export const singlePost = async (req, res, next) => {
+export const singlePost = cathAsyncErrors(async (req, res, next) => {
   try {
     let singlePost = await Post.findById(req.params.id).populate("user");
     if (!singlePost) {
@@ -95,11 +95,11 @@ export const singlePost = async (req, res, next) => {
       message: `ERROR ${error.message}`,
     });
   }
-};
+});
 
 // delete post
 
-export const deletePost = async (req, res, next) => {
+export const deletePost = cathAsyncErrors(async (req, res, next) => {
   try {
     let singlePost = await Post.findById(req.params._id);
     if (!singlePost) {
@@ -122,4 +122,4 @@ export const deletePost = async (req, res, next) => {
       message: `ERROR ${error.message}`,
     });
   }
-};
+});

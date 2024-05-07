@@ -45,7 +45,7 @@ const Login = () => {
   // }
 
   return (
-    <div classname="login">
+    <div classname="login display-flex">
       <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Username</Form.Label>
