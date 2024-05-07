@@ -7,76 +7,73 @@ import { useState } from "react";
 import { useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 // baseurl/post
 
 const SinglePost = () => {
   const [post, setPost] = useState({});
 
-  // // const location = useLocation()
-  // // const navigate = useNavigate()
+  const location = useLocation();
+  // const navigate = useNavigate();
 
-  // const postId = location.pathname.split("/")[2]
+  const postId = location.pathname.split("/")[3];
+  // console.log(postId);
 
-  // // const {currentUser} = useContext(AuthContext)
+  // const { currentUser } = useContext(AuthContext);
 
-  // useEffect(()=> {
-  //   const fetchData = async () =>{
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:3001/api/post/single/${postId}`
+        );
+        setPost(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
+  //   const handleDelete = async ()=> {
   //     try{
-  //       const res = await axios.get(`/post/${postId}`);
-  //       setPosts(res.data);
-  //     } catch (err){
+  //       await axios.delete(`/post/${postId}`);
+  //       navigate("/")
+  //       } catch (err){
   //       console.log(err);
   //     }
-  //   };
 
-  //   fetchData();
-
-  // },[postId])
-
-  // const handleDelete = async ()=> {
-  //   try{
-  //     await axios.delete(`/post/${postId}`);
-  //     navigate("/")
-  //     } catch (err){
-  //     console.log(err);
   //   }
 
-  // }
-
-  // }
+  //   }
 
   return (
     <div className="singlePost font-link">
       <div className="content">
-        {/* <img
-          src="https://images.pexels.com/photos/1414651/pexels-photo-1414651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          alt=""
-        /> */}
         <div className="user">
-          {/* <img
-            src="https://images.pexels.com/photos/813940/pexels-photo-813940.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-          />  */}
           <div className="info">
             <span>{post.username}</span>
-            <p>Posted {moment(post.date).fromNow}</p>
+            <p>{moment(post.date).fromNow}</p>
           </div>
-          {/* {currentUser.username === post.username &&  */}(
+          {/* {currentUser.username === post.username &&  */}
           <div className="edit">
-            <Link to={`/create?edit=2`}>
-              <img src={Edit} alt="" />
+            <Link to={`/post/edit/${postId}`}>
+              <Button variant="dark">Edit</Button>
             </Link>
-            {<img src={Delete} alt="" />}
           </div>
-          )}
+          <div>
+            <Link to={`/post/delete/${postId}`}>
+              <Button variant="dark">Delete</Button>
+            </Link>
+          </div>
         </div>
-        <h1>{post.title}Lorem ipsum dolor sit amet.</h1>
-
+        <h1>{post.title}</h1>
         {post.description}
       </div>
-      <Toolbar />
+      {/* <Toolbar /> */}
     </div>
   );
 };

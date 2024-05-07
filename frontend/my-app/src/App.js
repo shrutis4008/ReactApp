@@ -38,7 +38,7 @@ function App() {
         },
 
         {
-          path: "/create",
+          path: "/post/create",
           element: <CreatePost />,
         },
 
@@ -53,31 +53,11 @@ function App() {
         },
 
         {
-          path: "/post",
+          path: "/post/single/:id",
           element: <SinglePost />,
         },
       ],
     },
-
-    // {
-    //   path: "/login",
-    //   element: <Login/>,
-    // },
-
-    // {
-    //   path: "/register",
-    //   element: <Register/>,
-    // },
-
-    // {
-    //   path: "/post",
-    //   element: <SinglePost/>,
-    // },
-
-    // {
-    //   path: "/create",
-    //   element: <CreatePost/>,
-    // },
   ]);
 
   return (
