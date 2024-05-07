@@ -1,5 +1,7 @@
 import User from "../models/userSchema.js";
 
+// User registration
+
 export const Register = async (req, res, next) => {
   const { username, email, password } = req.body;
   const user = await User.create({
@@ -17,6 +19,7 @@ export const Register = async (req, res, next) => {
   });
 };
 
+// User Login
 export const Login = async (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -54,4 +57,15 @@ export const Login = async (req, res, next) => {
     success: true,
     token,
   });
+};
+
+// User Logout
+export const Logout = (req, res) => {
+  res
+    .clearCookie("access_token", {
+      sameSite: "none",
+      secure: true,
+    })
+    .status(200)
+    .json("User has been logged out.");
 };
