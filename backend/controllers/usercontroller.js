@@ -3,6 +3,7 @@ import User from "../models/userSchema.js";
 // User registration
 
 export const Register = async (req, res, next) => {
+  res.header("Content-Type", "application/json");
   const { username, email, password } = req.body;
   const user = await User.create({
     username,
@@ -21,6 +22,8 @@ export const Register = async (req, res, next) => {
 
 // User Login
 export const Login = async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+
   const { username, password } = req.body;
   if (!username || !password) {
     res.status(400).json({
@@ -60,12 +63,12 @@ export const Login = async (req, res, next) => {
 };
 
 // User Logout
-export const Logout = (req, res) => {
-  res
-    .clearCookie("access_token", {
-      sameSite: "none",
-      secure: true,
-    })
-    .status(200)
-    .json("User has been logged out.");
-};
+// export const Logout = (req, res) => {
+//   res
+//     .clearCookie("access_token", {
+//       sameSite: "none",
+//       secure: true,
+//     })
+//     .status(200)
+//     .json("User has been logged out.");
+// };
