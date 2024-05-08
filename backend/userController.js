@@ -1,4 +1,4 @@
-import User from "../models/userSchema.js";
+import User from "./userSchema.js";
 
 // User registration
 

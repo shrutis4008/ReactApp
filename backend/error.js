@@ -1,4 +1,4 @@
-import errorhandler from "../utils/errorHandler";
+import errorhandler from "./errorHandler";
 
 module.exports = (err, req, res, next) => {
   err.statusCode = err.statusCode || 500;

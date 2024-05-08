@@ -2,8 +2,8 @@ import express from "express";
 import cookieparser from "cookie-parser";
 
 // routes import
-import user from "./routes/userRoute.js";
-import post from "./routes/postRoute.js";
+import user from "./userRoute.js";
+import post from "./postRoute.js";
 
 const app = express();
 app.use(express.json());

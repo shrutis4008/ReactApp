@@ -5,8 +5,8 @@ import {
   editPost,
   singlePost,
   deletePost,
-} from "../controllers/postController.js";
-import { isAuthenticatedUser } from "../middleware/auth.js";
+} from "./postController.js";
+import { isAuthenticatedUser } from "./auth.js";
 
 const router = express.Router();
 
