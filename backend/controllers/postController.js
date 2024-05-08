@@ -1,5 +1,5 @@
-import Post from "./models/postSchema.js";
-import cathAsyncErrors from "./middleware/cathAsyncErrors.js";
+import Post from "../models/postSchema.js";
+import cathAsyncErrors from "../middleware/cathAsyncErrors.js";
 
 //Create a post with fields title, descrption and username
 //
