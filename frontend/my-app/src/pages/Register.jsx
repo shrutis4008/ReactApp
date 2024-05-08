@@ -26,8 +26,11 @@ const Register = () => {
 
     try {
       // console.log("inputs: ", inputs);
-      await axios.post("/auth/register/", inputs);
-      navigate("/login");
+      await axios.post(
+        "https://react-blog-app-ixe0.onrender.com/api/auth/register/",
+        inputs
+      );
+      navigate("http://localhost:3000/login");
     } catch (err) {
       console.log(err);
     }

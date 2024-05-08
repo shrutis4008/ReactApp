@@ -27,7 +27,7 @@ const SinglePost = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/api/post/single/${postId}`
+          `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
         );
         setPost(res.data);
       } catch (err) {
@@ -65,9 +65,9 @@ const SinglePost = () => {
           </div>
           {/* {currentUser.username === post.username &&  */}
           <div className="edit">
-            {/* <Link to={`/post/edit/${postId}`}>
+            <Link to={`/post/edit/${postId}`}>
               <Button variant="dark">Edit</Button>
-            </Link> */}
+            </Link>
           </div>
           <div>
             <Link to={`/post/delete/${postId}`}>

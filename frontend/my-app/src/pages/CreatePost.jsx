@@ -24,7 +24,7 @@ const createPost = () => {
 
   //   try {
   //     state
-  //       ? await axios.put(`/post/create/${state.id}`, {
+  //       ? await axios.put(`https://react-blog-app-ixe0.onrender.com/api/post/create/${state.id}`, {
   //           title,
   //           desc: value,
   //         })
