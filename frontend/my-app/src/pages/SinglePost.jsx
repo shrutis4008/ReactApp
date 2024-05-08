@@ -55,14 +55,19 @@ const SinglePost = () => {
       <div className="content">
         <div className="user">
           <div className="info">
-            <span>{post.username}</span>
-            <p>{moment(post.date).fromNow}</p>
+            <span>
+              {post &&
+                post.singlePost &&
+                post.singlePost.user &&
+                post.singlePost.user.username}
+            </span>
+            <p>{post && post.singlePost && post.singlePost.date}</p>
           </div>
           {/* {currentUser.username === post.username &&  */}
           <div className="edit">
-            <Link to={`/post/edit/${postId}`}>
+            {/* <Link to={`/post/edit/${postId}`}>
               <Button variant="dark">Edit</Button>
-            </Link>
+            </Link> */}
           </div>
           <div>
             <Link to={`/post/delete/${postId}`}>
@@ -70,8 +75,8 @@ const SinglePost = () => {
             </Link>
           </div>
         </div>
-        <h1>{post.title}</h1>
-        {post.description}
+        <h1>{post && post.singlePost && post.singlePost.title}</h1>
+        <p> {post && post.singlePost && post.singlePost.description} </p>
       </div>
       {/* <Toolbar /> */}
     </div>

@@ -6,45 +6,70 @@ import Row from "react-bootstrap/Row";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Button from "react-bootstrap/Button";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import moment from "moment";
 
 // baserurl/create
 
-const CreatePost = () => {
-  const [value, setValue] = useState("");
-  const [title, setTitle] = useState("");
+const createPost = () => {
+  // const state = useLocation().state;
+  // const [value, setValue] = useState(state?.desc || "");
+  // const [title, setTitle] = useState(state?.value || "");
 
-  const handleClick = async (e) => {
-    e.preventDefault();
-  };
+  // const navigate = useNavigate();
+
+  // const handleClick = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     state
+  //       ? await axios.put(`/post/create/${state.id}`, {
+  //           title,
+  //           desc: value,
+  //         })
+  //       : await axios.post(`/posts/`, {
+  //           title,
+  //           desc: value,
+  //           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+  //         });
+  //     navigate("/");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
   // console.log(value);
   return (
     <div className="add">
       <div className="content">
         <Row>
-          {/* <Form.Label column="sm" lg={2}>
-          Title
-        </Form.Label> */}
           <Col>
             <Form.Control
               className="input"
               size="sm"
               type="text"
               placeholder="Title"
-              onChange={(e) => setTitle(e.target.value)}
+              // onChange={(e) => setTitle(e.target.value)}
             />
           </Col>
         </Row>
         <br></br>
         <div className="editorContainer">
-          <ReactQuill theme="snow" value={value} onChange={setValue} />
+          <ReactQuill
+            className="editor"
+            theme="snow"
+            // value={value}
+            // onChange={setValue}
+          />
         </div>
-        <div className="m-3">
+        {/* <div className="m-3">
           <label className="mx-3">Upload image here: </label>
           <input className="d-none" type="file" />
           <Button variant="outline-dark" size="sm" onClick={handleClick}>
             Upload
           </Button>{" "}
-        </div>
+        </div> */}
       </div>
 
       <div className="item">
@@ -52,13 +77,13 @@ const CreatePost = () => {
         <div className="m-3">
           <label className="mx-3"></label>
           <input className="d-none" type="file" />
-          <Button variant="primary" size="sm" onClick={handleClick}>
+          {/* <Button variant="primary" size="sm" onClick={handleClick}>
             Create Post
-          </Button>{" "}
+          </Button>{" "} */}
         </div>
       </div>
     </div>
   );
 };
 
-export default CreatePost;
+export default createPost;

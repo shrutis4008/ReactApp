@@ -4,6 +4,8 @@ import cathAsyncErrors from "../middleware/cathAsyncErrors.js";
 //Create a post with fields title, descrption and username
 //
 export const createPost = cathAsyncErrors(async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+
   try {
     req.body.user = req.user.id;
     const { title, description, user } = req.body;
@@ -26,6 +28,8 @@ export const createPost = cathAsyncErrors(async (req, res, next) => {
 
 // Get all posts
 export const getAllPosts = cathAsyncErrors(async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+
   try {
     const posts = await Post.find();
     if (!posts) {
@@ -48,6 +52,8 @@ export const getAllPosts = cathAsyncErrors(async (req, res, next) => {
 
 // Edit a post
 export const editPost = cathAsyncErrors(async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+
   try {
     let singlePost = await Post.findById(req.params.id);
     if (!singlePost) {
@@ -77,6 +83,8 @@ export const editPost = cathAsyncErrors(async (req, res, next) => {
 // Single post
 
 export const singlePost = cathAsyncErrors(async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+
   try {
     let singlePost = await Post.findById(req.params.id).populate("user");
     if (!singlePost) {
@@ -100,6 +108,8 @@ export const singlePost = cathAsyncErrors(async (req, res, next) => {
 // delete post
 
 export const deletePost = cathAsyncErrors(async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+
   try {
     let singlePost = await Post.findById(req.params._id);
     if (!singlePost) {

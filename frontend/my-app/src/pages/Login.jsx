@@ -53,7 +53,7 @@ const Login = () => {
             className="email"
             type="text"
             placeholder="Enter username"
-            name="password"
+            name="username"
             style={{ marginBottom: "20px" }}
             onChange={handleChange}
           />
