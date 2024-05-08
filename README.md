@@ -1,2 +1,1 @@
-# react
-react web app for class
+# React Nodejs web app for class
