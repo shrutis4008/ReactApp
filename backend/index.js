@@ -3,19 +3,18 @@ import app from "./app.js";
 import connectDatabase from "./config/database.js";
 import dotenv from "dotenv";
 
-app.use(express.json());
-
 const corsOptions = {
   origin: "http://localhost:3000/",
   credentials: true,
   optionSuccessStatus: 200,
   accessControlAllowOrigin: "*",
   accessControlAllowCredentials: true,
-  accessControlAllowHeaders: "Content-Type",
+  accessControlAllowHeaders:
+    "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
   methods: "OPTIONS, POST,GET, PUT",
 };
 
-// "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+//
 process.on("uncaughtException", (err) => {
   console.log(`error:${err.message}`);
   process.exit(1);
