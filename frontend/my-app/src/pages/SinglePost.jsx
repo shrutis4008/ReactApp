@@ -27,7 +27,7 @@ const SinglePost = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
+          `http://localhost:3001/api/post/single/${postId}`
         );
         setPost(res.data);
       } catch (err) {
@@ -71,14 +71,14 @@ const SinglePost = () => {
             <Link
               to={`https://react-blog-app-ixe0.onrender.com/api/post/create/${postId}`}
             >
-              <Button variant="dark">Edit</Button>
+              <Button variant="primary">Edit</Button>
             </Link>
           </div>
           <div>
             <Link
               to={`https://react-blog-app-ixe0.onrender.com/api/post/delete/${postId}`}
             >
-              <Button onChange={handleDelete} variant="dark">
+              <Button onChange={handleDelete} variant="primary">
                 Delete
               </Button>
             </Link>

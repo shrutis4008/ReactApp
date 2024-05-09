@@ -66,14 +66,13 @@ const createPost = () => {
             // onChange={setValue}
           />
         </div>
-      </div>
-
-      <div className="item">
-        <h1 style={{ marginLeft: "30px" }}></h1>
-        <div className="m-3">
-          <label className="mx-3"></label>
-          <input className="d-none" type="file" />
-          <Button variant="primary" size="sm">
+        <div className="item">
+          <h1 style={{ marginLeft: "30px" }}></h1>
+          <Button
+            className="button"
+            variant="primary"
+            style={{ marginTop: "15px" }}
+          >
             Create Post
           </Button>{" "}
         </div>
