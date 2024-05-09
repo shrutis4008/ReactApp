@@ -4,10 +4,10 @@ import connectDatabase from "./config/database.js";
 import dotenv from "dotenv";
 
 const corsOptions = {
-  origin: "http://localhost:3000/",
+  origin: "*",
   credentials: true,
   optionSuccessStatus: 200,
-  accessControlAllowOrigin: "http://localhost:3000/",
+  accessControlAllowOrigin: "*",
   accessControlAllowCredentials: true,
   accessControlAllowHeaders:
     "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",

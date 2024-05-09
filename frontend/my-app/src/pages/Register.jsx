@@ -30,7 +30,7 @@ const Register = () => {
         "https://react-blog-app-ixe0.onrender.com/api/auth/register/",
         inputs
       );
-      navigate("http://localhost:3000/login");
+      navigate("/login");
     } catch (err) {
       console.log(err);
     }
