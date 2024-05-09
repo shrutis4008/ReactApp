@@ -3,6 +3,8 @@ import app from "./app.js";
 import connectDatabase from "./config/database.js";
 import dotenv from "dotenv";
 
+app.use(express.json());
+
 const corsOptions = {
   origin: "http://localhost:3000/",
   credentials: true,
