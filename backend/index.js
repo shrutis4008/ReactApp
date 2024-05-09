@@ -9,11 +9,11 @@ const corsOptions = {
   optionSuccessStatus: 200,
   accessControlAllowOrigin: "*",
   accessControlAllowCredentials: true,
-  accessControlAllowHeaders:
-    "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+  accessControlAllowHeaders: "Content-Type",
   methods: "OPTIONS, POST,GET, PUT",
 };
 
+// "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
 process.on("uncaughtException", (err) => {
   console.log(`error:${err.message}`);
   process.exit(1);
