@@ -4,10 +4,10 @@ import connectDatabase from "./config/database.js";
 import dotenv from "dotenv";
 
 const corsOptions = {
-  origin: "https://react-frontend-rjpz.onrender.com/",
+  origin: "http://localhost:3000/",
   credentials: true,
   optionSuccessStatus: 200,
-  accessControlAllowOrigin: "https://react-frontend-rjpz.onrender.com/",
+  accessControlAllowOrigin: "*",
   accessControlAllowCredentials: true,
   accessControlAllowHeaders:
     "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
