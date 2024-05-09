@@ -8,7 +8,7 @@ app.use(cors());
 app.use(function (req, res, next) {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://react-blog-app-ixe0.onrender.com/, *"
+    "https://react-1flkd5rrp-shrutis-projects-226bf37e.vercel.app, *"
   );
   res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT");
   res.header(
