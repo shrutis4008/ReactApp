@@ -13,31 +13,34 @@ import moment from "moment";
 // baserurl/create
 
 const createPost = () => {
-  // const state = useLocation().state;
-  // const [value, setValue] = useState(state?.desc || "");
-  // const [title, setTitle] = useState(state?.value || "");
+  //   const state = useLocation().state;
+  //   const [value, setValue] = useState(state?.title || "");
+  //   const [title, setTitle] = useState(state?.desc || "");
 
-  // const navigate = useNavigate();
+  //   const navigate = useNavigate();
 
-  // const handleClick = async (e) => {
-  //   e.preventDefault();
+  //   const handleClick = async (e) => {
+  //     e.preventDefault();
 
-  //   try {
-  //     state
-  //       ? await axios.put(`https://react-blog-app-ixe0.onrender.com/api/post/create/${state.id}`, {
-  //           title,
-  //           desc: value,
-  //         })
-  //       : await axios.post(`/posts/`, {
-  //           title,
-  //           desc: value,
-  //           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-  //         });
-  //     navigate("/");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  //     try {
+  //       state
+  //         ? await axios.put(
+  //             `https://react-blog-app-ixe0.onrender.com/api/post/create/${state.id}`,
+  //             {
+  //               title,
+  //               desc: value,
+  //             }
+  //           )
+  //         : await axios.post(`/posts/`, {
+  //             title,
+  //             desc: value,
+  //             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
+  //           });
+  //       navigate("/");
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
 
   // console.log(value);
   return (
@@ -63,13 +66,6 @@ const createPost = () => {
             // onChange={setValue}
           />
         </div>
-        {/* <div className="m-3">
-          <label className="mx-3">Upload image here: </label>
-          <input className="d-none" type="file" />
-          <Button variant="outline-dark" size="sm" onClick={handleClick}>
-            Upload
-          </Button>{" "}
-        </div> */}
       </div>
 
       <div className="item">
@@ -77,9 +73,9 @@ const createPost = () => {
         <div className="m-3">
           <label className="mx-3"></label>
           <input className="d-none" type="file" />
-          {/* <Button variant="primary" size="sm" onClick={handleClick}>
+          <Button variant="primary" size="sm">
             Create Post
-          </Button>{" "} */}
+          </Button>{" "}
         </div>
       </div>
     </div>

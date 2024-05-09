@@ -16,7 +16,7 @@ const SinglePost = () => {
   const [post, setPost] = useState({});
 
   const location = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const postId = location.pathname.split("/")[3];
   // console.log(postId);
@@ -38,17 +38,16 @@ const SinglePost = () => {
     fetchData();
   }, [postId]);
 
-  //   const handleDelete = async ()=> {
-  //     try{
-  //       await axios.delete(`/post/${postId}`);
-  //       navigate("/")
-  //       } catch (err){
-  //       console.log(err);
-  //     }
-
-  //   }
-
-  //   }
+  const handleDelete = async () => {
+    try {
+      await axios.delete(
+        `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
+      );
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="singlePost font-link">
@@ -61,17 +60,27 @@ const SinglePost = () => {
                 post.singlePost.user &&
                 post.singlePost.user.username}
             </span>
-            <p>{post && post.singlePost && post.singlePost.date}</p>
+            <p>
+              {moment(
+                post && post.singlePost && post.singlePost.date
+              ).fromNow()}
+            </p>
           </div>
           {/* {currentUser.username === post.username &&  */}
           <div className="edit">
-            <Link to={`/post/edit/${postId}`}>
+            <Link
+              to={`https://react-blog-app-ixe0.onrender.com/api/post/create/${postId}`}
+            >
               <Button variant="dark">Edit</Button>
             </Link>
           </div>
           <div>
-            <Link to={`/post/delete/${postId}`}>
-              <Button variant="dark">Delete</Button>
+            <Link
+              to={`https://react-blog-app-ixe0.onrender.com/api/post/delete/${postId}`}
+            >
+              <Button onChange={handleDelete} variant="dark">
+                Delete
+              </Button>
             </Link>
           </div>
         </div>
