@@ -27,7 +27,10 @@ const Login = () => {
     e.preventDefault();
     try {
       // console.log("inputs: ", inputs);
-      await axios.post("http://localhost:3001/api/auth/login/", inputs);
+      await axios.post(
+        "https://react-blog-app-ixe0.onrender.com/api/auth/login/",
+        inputs
+      );
       // navigate("http://localhost:3000/");
     } catch (err) {
       console.log(err);

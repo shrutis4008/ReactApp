@@ -27,7 +27,7 @@ const SinglePost = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/api/post/single/${postId}`
+          `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
         );
         setPost(res.data);
       } catch (err) {
