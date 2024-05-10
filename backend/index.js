@@ -51,25 +51,25 @@ import dotenv from "dotenv";
 
 //
 
-const corsOptions = {
-  origin: [
-    "http://localhost:3000/",
-    "https://react-blog-app-ixe0.onrender.com/",
-  ],
-  optionSuccessStatus: 200,
-  credentials: true,
-  "Access-Control-Allow-Origin": [
-    "http://localhost:3000/",
-    "https://react-blog-app-ixe0.onrender.com/",
-  ],
-  accessControlAllowCredentials: true,
-  accessControlAllowHeaders:
-    "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
-  methods: "OPTIONS, POST, GET, PUT, DELETE",
-  "Content-Type": "application/json",
-};
+// const corsOptions = {
+//   origin: [
+//     "http://localhost:3000/",
+//     "https://react-blog-app-ixe0.onrender.com/",
+//   ],
+//   optionSuccessStatus: 200,
+//   credentials: true,
+//   "Access-Control-Allow-Origin": [
+//     "http://localhost:3000/",
+//     "https://react-blog-app-ixe0.onrender.com/",
+//   ],
+//   accessControlAllowCredentials: true,
+//   accessControlAllowHeaders:
+//     "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+//   methods: "OPTIONS, POST, GET, PUT, DELETE",
+//   "Content-Type": "application/json",
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 //
 process.on("uncaughtException", (err) => {
