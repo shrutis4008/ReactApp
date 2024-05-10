@@ -31,7 +31,9 @@ const SinglePost = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`/post/single/${postId}`);
+        const res = await axios.get(
+          `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
+        );
         setPost(res.data);
       } catch (err) {
         console.log(err);

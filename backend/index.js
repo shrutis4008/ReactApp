@@ -3,19 +3,20 @@ import app from "./app.js";
 import connectDatabase from "./config/database.js";
 import dotenv from "dotenv";
 
-// app.use(function (req, res, next) {
-//   res.header(
-//     "Access-Control-Allow-Origin",
-//     "https://react-blog-app-ixe0.onrender.com/",
-//     "*"
-//   );
-//   res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT, DELETE");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   next();
-// });
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://react-blog-app-ixe0.onrender.com/",
+    "*"
+  );
+  res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT, DELETE");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  next();
+});
+app.use(cors());
 
 // const allowedOrigins = ["https://react-blog-app-ixe0.onrender.com/"];
 
@@ -46,8 +47,6 @@ import dotenv from "dotenv";
 //   res.header("Cross-Origin", "True");
 //   res.header("Access-Control-Allow-Headers", "Content-Type");
 // });
-
-// app.use(cors());
 
 //
 
