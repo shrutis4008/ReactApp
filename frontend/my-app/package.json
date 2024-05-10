@@ -1,6 +1,5 @@
 {
   "name": "my-app",
-  "proxy": "https://react-blog-app-ixe0.onrender.com/api/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
