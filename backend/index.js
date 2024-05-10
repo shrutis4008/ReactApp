@@ -58,7 +58,7 @@ const corsOptions = {
   ],
   optionSuccessStatus: 200,
   credentials: true,
-  accessControlAllowOrigin: [
+  "Access-Control-Allow-Origin": [
     "http://localhost:3000/",
     "https://react-blog-app-ixe0.onrender.com/",
   ],
