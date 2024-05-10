@@ -2,23 +2,20 @@ import cors from "cors";
 import app from "./app.js";
 import connectDatabase from "./config/database.js";
 import dotenv from "dotenv";
-import express from "express";
 
-app.use(cors());
-
-app.use(function (req, res, next) {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://react-blog-app-ixe0.onrender.com/",
-    "*"
-  );
-  res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT, DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://react-blog-app-ixe0.onrender.com/",
+//     "*"
+//   );
+//   res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT, DELETE");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+//   );
+//   next();
+// });
 
 // const allowedOrigins = ["https://react-blog-app-ixe0.onrender.com/"];
 
@@ -54,14 +51,21 @@ app.use(function (req, res, next) {
 
 //
 
-// const corsOptions = {
-//   origin: "http://localhost:3000/",
-//   optionSuccessStatus: 200,
-//   accessControlAllowOrigin: "*",
-//   accessControlAllowCredentials: true,
-//   accessControlAllowHeaders: "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
-//   methods: "OPTIONS, POST, GET, PUT, DELETE",
-// };
+const corsOptions = {
+  origin: [
+    "http://localhost:3000/",
+    "https://react-blog-app-ixe0.onrender.com/",
+  ],
+  optionSuccessStatus: 200,
+  credentials: true,
+  accessControlAllowOrigin: "*",
+  accessControlAllowCredentials: true,
+  accessControlAllowHeaders:
+    "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+  methods: "OPTIONS, POST, GET, PUT, DELETE",
+};
+
+app.use(cors(corsOptions));
 
 //
 process.on("uncaughtException", (err) => {
