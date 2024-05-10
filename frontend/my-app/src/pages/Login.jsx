@@ -25,16 +25,18 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      // console.log("inputs: ", inputs);
-      await axios.post(
-        "https://react-blog-app-ixe0.onrender.com/api/auth/login/",
-        inputs
-      );
-      // navigate("http://localhost:3000/");
-    } catch (err) {
-      console.log(err);
-    }
+
+    // console.log("inputs: ", inputs);
+    await axios
+      .post("/auth/login/", inputs)
+      .then((res) => {
+        localStorage.setItem("accessToken", res.data.token);
+        alert("User Logged In.");
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   // setErrors(Validation(inputs));

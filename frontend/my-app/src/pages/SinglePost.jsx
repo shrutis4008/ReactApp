@@ -12,6 +12,11 @@ import Button from "react-bootstrap/Button";
 
 // baseurl/post
 
+const accessToken = localStorage.getItem("accessToken");
+const headers = {
+  Authorization: `Bearer ${accessToken}`,
+};
+
 const SinglePost = () => {
   const [post, setPost] = useState({});
 
@@ -26,9 +31,7 @@ const SinglePost = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
-        );
+        const res = await axios.get(`/post/single/${postId}`);
         setPost(res.data);
       } catch (err) {
         console.log(err);
@@ -38,15 +41,12 @@ const SinglePost = () => {
     fetchData();
   }, [postId]);
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(
-        `https://react-blog-app-ixe0.onrender.com/api/post/single/${postId}`
-      );
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    await axios.delete(`/post/delete/${postId}`, { headers }).then((res) => {
+      alert("Blogpost deleted!");
       navigate("/");
-    } catch (err) {
-      console.log(err);
-    }
+    });
   };
 
   return (
@@ -68,20 +68,16 @@ const SinglePost = () => {
           </div>
           {/* {currentUser.username === post.username &&  */}
           <div className="edit">
-            <Link
+            {/* <Link
               to={`https://react-blog-app-ixe0.onrender.com/api/post/create/${postId}`}
             >
               <Button variant="primary">Edit</Button>
-            </Link>
+            </Link> */}
           </div>
           <div>
-            <Link
-              to={`https://react-blog-app-ixe0.onrender.com/api/post/delete/${postId}`}
-            >
-              <Button onChange={handleDelete} variant="primary">
-                Delete
-              </Button>
-            </Link>
+            <Button onClick={handleDelete} variant="primary">
+              Delete
+            </Button>
           </div>
         </div>
         <h1>{post && post.singlePost && post.singlePost.title}</h1>

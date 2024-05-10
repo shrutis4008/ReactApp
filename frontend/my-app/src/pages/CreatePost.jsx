@@ -11,38 +11,29 @@ import axios from "axios";
 import moment from "moment";
 
 // baserurl/create
+const accessToken = localStorage.getItem("accessToken");
+const headers = {
+  Authorization: `Bearer ${accessToken}`,
+};
+const CreatePost = () => {
+  // const state = useLocation().state;
+  const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
 
-const createPost = () => {
-  //   const state = useLocation().state;
-  //   const [value, setValue] = useState(state?.title || "");
-  //   const [title, setTitle] = useState(state?.desc || "");
+  const navigate = useNavigate();
 
-  //   const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (title && value) {
+      axios
+        .post("/post/create/", { title, description: value }, { headers })
+        .then((res) => {
+          alert("Post created!");
+          navigate("/");
+        });
+    }
+  };
 
-  //   const handleClick = async (e) => {
-  //     e.preventDefault();
-
-  //     try {
-  //       state
-  //         ? await axios.put(
-  //             `https://react-blog-app-ixe0.onrender.com/api/post/create/${state.id}`,
-  //             {
-  //               title,
-  //               desc: value,
-  //             }
-  //           )
-  //         : await axios.post(`/posts/`, {
-  //             title,
-  //             desc: value,
-  //             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-  //           });
-  //       navigate("/");
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-
-  // console.log(value);
   return (
     <div className="add">
       <div className="content">
@@ -53,7 +44,7 @@ const createPost = () => {
               size="sm"
               type="text"
               placeholder="Title"
-              // onChange={(e) => setTitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
           </Col>
         </Row>
@@ -62,14 +53,15 @@ const createPost = () => {
           <ReactQuill
             className="editor"
             theme="snow"
-            // value={value}
-            // onChange={setValue}
+            value={value}
+            onChange={setValue}
           />
         </div>
         <div className="item">
           <h1 style={{ marginLeft: "30px" }}></h1>
           <Button
             className="button"
+            onClick={handleSubmit}
             variant="primary"
             style={{ marginTop: "15px" }}
           >
@@ -81,4 +73,4 @@ const createPost = () => {
   );
 };
 
-export default createPost;
+export default CreatePost;
