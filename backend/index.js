@@ -58,11 +58,15 @@ const corsOptions = {
   ],
   optionSuccessStatus: 200,
   credentials: true,
-  accessControlAllowOrigin: "*",
+  accessControlAllowOrigin: [
+    "http://localhost:3000/",
+    "https://react-blog-app-ixe0.onrender.com/",
+  ],
   accessControlAllowCredentials: true,
   accessControlAllowHeaders:
     "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
   methods: "OPTIONS, POST, GET, PUT, DELETE",
+  "Content-Type": "application/json",
 };
 
 app.use(cors(corsOptions));
