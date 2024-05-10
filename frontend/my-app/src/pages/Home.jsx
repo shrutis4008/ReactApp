@@ -13,7 +13,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("/post/allposts/");
+        const res = await axios.get(
+          "https://react-blog-app-ixe0.onrender.com/api/post/allposts/"
+        );
         setPosts(res.data.posts);
       } catch (err) {
         console.log(err);
