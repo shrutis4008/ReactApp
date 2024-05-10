@@ -7,15 +7,15 @@ import express from "express";
 app.use(express());
 app.use(cors());
 
-// app.use(function (req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT, DELETE");
-//   res.header("Cross-Origin", "True");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-// });
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "OPTIONS, POST,GET, PUT, DELETE");
+  res.header("Cross-Origin", "True");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+});
 
 // app.use(cors());
 
