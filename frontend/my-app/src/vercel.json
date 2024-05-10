@@ -1,11 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://react-blog-app-ixe0.onrender.com/api/"
-    }
-  ],
-
   "headers": [
     {
       "source": "/api/(.*)",
