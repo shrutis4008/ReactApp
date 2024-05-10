@@ -26,11 +26,7 @@ const CreatePost = () => {
     e.preventDefault();
     if (title && value) {
       axios
-        .post(
-          "https://react-blog-app-ixe0.onrender.com/api/post/create/",
-          { title, description: value },
-          { headers }
-        )
+        .post("/post/create/", { title, description: value }, { headers })
         .then((res) => {
           alert("Post created!");
           navigate("/");

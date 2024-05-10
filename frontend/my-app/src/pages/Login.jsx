@@ -28,7 +28,7 @@ const Login = () => {
 
     // console.log("inputs: ", inputs);
     await axios
-      .post("https://react-blog-app-ixe0.onrender.com/api/auth/login/", inputs)
+      .post("/auth/login/", inputs)
       .then((res) => {
         localStorage.setItem("accessToken", res.data.token);
         alert("User Logged In.");

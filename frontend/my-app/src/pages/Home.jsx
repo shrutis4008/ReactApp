@@ -37,7 +37,7 @@ const Home = () => {
                 <Link
                   className="link"
                   style={{ textDecoration: "none" }}
-                  to={`https://react-blog-app-ixe0.onrender.com/api/post/single/${post._id}`}
+                  to={`/post/single/${post._id}`}
                 >
                   <Button variant="outline-dark" size="sm">
                     Read more
