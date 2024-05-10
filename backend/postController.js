@@ -112,24 +112,34 @@ export const deletePost = cathAsyncErrors(async (req, res, next) => {
 
   try {
     let singlePost = await Post.findById(req.params._id);
+    let author = req.user._id;
+    console.log("author", author);
+    console.log("single blog post user", singlePost.user);
     if (!singlePost) {
       return res.status(404).json({
         success: false,
         message: "Blog post not found",
       });
     }
-    Post.deleteOne({
-      _id: singlePost,
-    }).then(() => {
-      return res.status(200).json({
-        success: true,
-        message: `post deleted`,
+    if (author === singlePost.user) {
+      Post.deleteOne({
+        _id: singlePost,
+      }).then(() => {
+        return res.status(200).json({
+          success: true,
+          message: `post deleted`,
+        });
       });
-    });
+    } else {
+      return res.status(401).json({
+        success: false,
+        message: `ERROR ${error.message}`,
+      });
+    }
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: `ERROR ${error.message}`,
+      message: `ERROR500 ${error.message}`,
     });
   }
 });
